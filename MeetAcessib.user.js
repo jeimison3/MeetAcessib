@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeetAcessib
 // @namespace    https://github.com/jeimison3/MeetAcessib
-// @version      0.1.0b2
+// @version      0.1.0b3
 // @description  Ferramentas assistivas para Google Meet
 // @author       jeimison3
 // @match        http://meet.google.com/*
@@ -68,12 +68,14 @@ const iniciarGravacao = ()=>{
         ordemClicks(ordem)
     })
     aoSurgirHardcore("OK").then((r)=>{
-        if(r)
+        if(r){
             clickBtnHardcore("OK")
+        }
     })
     aoSurgir("Ignorar").then((r)=>{
-        if(r)
+        if(r){
             clickBtn("Ignorar")
+        }
     })
 }
 
@@ -90,18 +92,22 @@ const pararGravacao = ()=>{
 
 const clickBtnHardcore = (name) =>{
     document.querySelectorAll('[jsaction]').forEach((v)=>{
-        if(v.innerHTML)
-            if(v.innerHTML.indexOf(name))
+        if(v.innerHTML){
+            if(v.innerHTML.indexOf(name) > -1){
                 v.click()
+            }
+        }
     });
 }
 
 const existeBtnHardcore = (name) =>{
     let encontrou = false;
     document.querySelectorAll('[jsaction]').forEach((v)=>{
-        if(v.innerHTML)
-            if(v.innerHTML.indexOf(name))
+        if(v.innerHTML){
+            if(v.innerHTML.indexOf(name) > -1){
                 encontrou = true
+            }
+        }
     })
     return encontrou;
 }
@@ -109,9 +115,10 @@ const existeBtnHardcore = (name) =>{
 const aoSurgirHardcore = async (nome) => {
     let contador = 50
     while(contador--){
-        await new Promise(r=>setTimeout(()=>r(), 100))
-        if(existeBtnHardcore(nome))
+        await new Promise(r=>setTimeout(r, 100))
+        if(existeBtnHardcore(nome)){
             return true
+        }
     }
     return false
 }
@@ -121,9 +128,10 @@ const aoSurgirHardcore = async (nome) => {
 const aoSurgir = async (nome) => {
     let contador = 50
     while(contador--){
-        await new Promise(r=>setTimeout(()=>r(), 100))
-        if(existeBtn(nome))
+        await new Promise(r=>setTimeout(r, 100))
+        if(existeBtn(nome)){
             return true
+        }
     }
     return false
 }
@@ -149,9 +157,9 @@ const existeBtn = (name, elemento = document) =>{
 const ordemClicks = async(ordem) =>{
     const clicks = ordem.split(">")
     for(let btn of clicks) {
-        if(await aoSurgir(btn))
+        if(await aoSurgir(btn)){
             clickBtn(btn)
-        else {
+        } else {
             console.error("MeetAcessib> botão não existe ["+btn+"]")
             break
         }
