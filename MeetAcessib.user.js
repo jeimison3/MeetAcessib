@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeetAcessib
 // @namespace    https://github.com/jeimison3/MeetAcessib
-// @version      0.1.0b3
+// @version      0.1.1b0
 // @description  Ferramentas assistivas para Google Meet
 // @author       jeimison3
 // @match        http://meet.google.com/*
