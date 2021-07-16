@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeetAcessib
 // @namespace    https://github.com/jeimison3/MeetAcessib
-// @version      0.1.1
+// @version      0.1.2
 // @description  Ferramentas assistivas para Google Meet
 // @author       jeimison3
 // @match        http://meet.google.com/*
@@ -67,9 +67,9 @@ const iniciarGravacao = ()=>{
         clickBtn("close")
         ordemClicks(ordem)
     })
-    aoSurgirHardcore("OK").then((r)=>{
+    aoSurgirHardcore(">OK<").then((r)=>{
         if(r){
-            clickBtnHardcore("OK")
+            clickBtnHardcore(">OK<")
         }
     })
     aoSurgir("Ignorar").then((r)=>{
