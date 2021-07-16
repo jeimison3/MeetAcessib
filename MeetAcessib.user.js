@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MeetAcessib
 // @namespace    https://github.com/jeimison3/MeetAcessib
-// @version      0.1.1b
+// @version      0.1.0b2
 // @description  Ferramentas assistivas para Google Meet
 // @author       jeimison3
 // @match        http://meet.google.com/*
@@ -106,7 +106,7 @@ const existeBtnHardcore = (name) =>{
     return encontrou;
 }
 
-const aoSurgirHardcore = async (name) => {
+const aoSurgirHardcore = async (nome) => {
     let contador = 50
     while(contador--){
         await new Promise(r=>setTimeout(()=>r(), 100))
@@ -118,7 +118,7 @@ const aoSurgirHardcore = async (name) => {
 
 //
 
-const aoSurgir = async (name) => {
+const aoSurgir = async (nome) => {
     let contador = 50
     while(contador--){
         await new Promise(r=>setTimeout(()=>r(), 100))
