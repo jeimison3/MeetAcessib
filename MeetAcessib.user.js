@@ -148,17 +148,13 @@ const existeBtn = (name, elemento = document) =>{
 
 const ordemClicks = async(ordem) =>{
     const clicks = ordem.split(">")
-    const intervalo = 300 //ms
-    const retries = 5
     for(let btn of clicks) {
-        aoSurgir(btn).then(r=>{
-            if(r)
-                clickBtn(btn)
-            else{
-
-            }
-        })
-        clickBtn(btn)
+        if(await aoSurgir(btn))
+            clickBtn(btn)
+        else {
+            console.error("MeetAcessib> botão não existe ["+btn+"]")
+            break
+        }
     }
 }
 
