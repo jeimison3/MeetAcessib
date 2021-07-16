@@ -7,7 +7,7 @@
 // @match        http://meet.google.com/*
 // @match        https://meet.google.com/*
 // @icon         https://www.google.com/s2/favicons?domain=meet.google.com
-// @downloadURL  https://github.com/jeimison3/MeetAcessib/raw//MeetAcessib.user.js
+// @downloadURL  https://github.com/jeimison3/MeetAcessib/raw/main/MeetAcessib.user.js
 // @grant        none
 // ==/UserScript==
 
